@@ -1,0 +1,2 @@
+var anyName = $('#id');
+anyName.addClass('active');

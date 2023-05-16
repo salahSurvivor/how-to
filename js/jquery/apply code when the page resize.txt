@@ -1,0 +1,7 @@
+  window.onresize = function(){
+    if(window.innerWidth >= 991)
+      //yourcode
+    
+    else if(window.innerWidth <= 991)
+      //yourcode
+  }

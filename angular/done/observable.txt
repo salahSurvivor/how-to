@@ -1,0 +1,25 @@
+1-app/services/item.service.ts :
+import {Item} from '../item';
+import {Items} from '../items';
+import {Observable, of} from 'rxjs';
+
+export class ItemService {
+
+  constructor() { }
+
+  getItems(): Observable<Item[]>{
+    const items = of(Items);
+    return items;
+  }
+}
+
+2-app/components/items/items.component.ts :
+export class ItemsComponent{ 
+  items: Item[] = [];
+
+  constructor(private itemService: ItemService){}
+
+  ngOnInit(): void{
+    this.itemService.getItems().subscribe((items) => this.items = items);
+  }
+}

@@ -1,0 +1,9 @@
+items.js :
+const items = {
+  ..data
+}
+
+module.exports = items;
+
+get items :
+const items = require('./items');

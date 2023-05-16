@@ -1,0 +1,32 @@
+run in the terminal :
+
+1- npm install primeng
+2- npm install primeicons
+3- npm install font-awesome --save
+
+angular.json :
+
+...
+"styles": [
+    "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+    "node_modules/primeng/resources/primeng.min.css",
+    ...
+]
+
+styless.css :
+/*@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");*/
+@import "primeicons/primeicons.css";
+
+usage :
+app.module.ts :
+
+import { ButtonModule } from 'primeng/button';
+
+  imports: [
+    ...
+    ButtonModule,
+  ],
+
+
+in html page :
+<p-button label="Submit"></p-button>

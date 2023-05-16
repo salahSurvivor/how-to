@@ -1,0 +1,40 @@
+1-items.js :
+
+const items = {
+    name: 'salaheddine',
+    job: 'full stack web developer',
+    age: 22
+};
+
+module.exports = items;
+
+2-index.js :
+
+const items = require('./items');
+console.log(items.name);
+
+
+exercise :
+
+1- items.js :
+class items {
+
+    constructor(name, age){
+        this.name = name,
+        this.age = age
+    }
+
+    fetching(){
+        console.log(`My name is ${this.name} and I am ${this.age}`)
+    }
+
+}
+
+module.exports = items;
+
+2- index.js :
+const items = require('./items');
+
+const items1 = new items('salaheddine', 22);
+
+items1.fetching();

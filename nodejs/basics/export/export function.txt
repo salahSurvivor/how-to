@@ -1,0 +1,6 @@
+productController.js :
+exports.functionName1 = (async(req, res) =>{})
+exports.functionName2 = (async(req, res) =>{})
+
+get the function :
+const productController = require('path');

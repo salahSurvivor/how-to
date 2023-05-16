@@ -1,0 +1,1 @@
+https://javascript.plainenglish.io/export-data-to-excel-in-angular-using-exceljs-305ba8c5dece

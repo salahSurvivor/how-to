@@ -1,0 +1,8 @@
+npm i @types/node
+
+tsconfig.app.json :
+
+  "compilerOptions": {
+    ...
+    "types": ["node"]
+  },

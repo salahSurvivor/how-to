@@ -1,0 +1,7 @@
+- install nodejs :
+1- npm init
+2- npm install uuid
+3- npm install -D nodemon
+
+- run file in the terminal :
+node fileName.js

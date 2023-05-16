@@ -1,0 +1,5 @@
+var anyName = $(#id);
+
+anyName.click(function(){
+    portfolio.css('color', 'red');
+});

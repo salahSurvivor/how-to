@@ -1,0 +1,3 @@
+get date: 
+  currentDate = new Date();
+  date = formatDate(this.currentDate, 'yyyy-MM-dd', 'en-US');

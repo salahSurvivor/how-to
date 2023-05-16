@@ -1,0 +1,7 @@
+New Project : ng new project-name
+
+Project Start : npx ng serve --open
+
+Create Component : npx ng generate component components/componentName
+
+create service : npx ng generate service services/item 

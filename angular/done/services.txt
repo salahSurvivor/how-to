@@ -1,0 +1,28 @@
+1-create service :
+npx ng generate service services/item 
+
+2-app/services/item.service.ts :
+import {Item} from '../item';
+import {Items} from '../items';
+
+export class ItemService {
+
+  constructor() { }
+
+  getItems(): Item[]{
+    return Items;
+  }
+}
+
+3-app/components/items/items.component.ts :
+export class ItemsComponent{ 
+  items: Item[] = [];
+
+  constructor(private itemService: ItemService){}
+
+  ngOnInit(): void{
+    this.items = this.itemService.getItems();
+  }
+}
+
+ 

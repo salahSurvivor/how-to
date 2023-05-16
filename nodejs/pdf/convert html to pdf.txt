@@ -1,0 +1,26 @@
+const puppeteer = require('puppeteer');
+
+app.get('/pdf', async(req, res) => {
+    try{
+        const browser = await puppeteer.launch({ headless: "new" });
+        const page = await browser.newPage();
+      	
+	//you going to change this './files/645132818ef1cc49d3e39326.html' by your path
+        const htmlContent = fs.readFileSync('./files/645132818ef1cc49d3e39326.html', 'utf8');
+        await page.setContent(htmlContent);
+      
+        const pdfBuffer = await page.pdf({
+          format: 'A3',
+          printBackground: true
+        });
+        
+        await browser.close();
+      
+	//you going to change this './files/pdf/example3.pdf' by your path
+        fs.writeFileSync('./files/pdf/example3.pdf', pdfBuffer);
+        res.status(200).json('Saved!!');
+    }
+    catch(err){
+        res.status(500).json(err.message);
+    }
+});

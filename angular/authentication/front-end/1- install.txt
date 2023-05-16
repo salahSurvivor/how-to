@@ -1,0 +1,1 @@
+npm i @auth0/angular-jwt

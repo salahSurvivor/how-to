@@ -1,0 +1,29 @@
+1- create folder 
+
+2- run in terminal :
+- npm init -y
+- npm i express
+- npm install -D nodemon
+
+3- package.json :
+  ...
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  ...
+
+4- index.js :
+const express = require('express');
+
+const app = express();
+
+//routes
+app.get('/', (req, res) => {
+    res.send(`this is the  : ${req.url}`);
+})
+
+//start server
+app.listen(3000, () => {
+    console.log('Nodejs Api Is Running On Port 3000');
+})

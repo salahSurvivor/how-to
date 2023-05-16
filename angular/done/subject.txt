@@ -1,0 +1,61 @@
+1- create new service
+2- app/services/ui.services.ts :
+
+import { Observable, Subject } from 'rxjs';
+
+export class UiService {
+  private showAddItem: boolean = false;
+  private subject = new Subject<any>();
+
+  constructor() { }
+
+  toggleItem(): void{
+    this.showAddItem = !this.showAddItem;
+    this.subject.next(this.showAddItem);
+  }
+
+  onToggle(): Observable<any>{
+    return this.subject.asObservable();
+  }
+}
+
+3- app/components/header.component.ts :
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
+
+export class HeaderComponent {
+  title: string = 'Angular Header';
+  show: boolean;
+  subscription: Subscription;
+
+  constructor(private uiSerivce: UiService) {
+    this.subscription = this.uiSerivce
+      .onToggle()
+      .subscribe((value) => this.show = value);  
+  }
+
+  ngOnDestroy(){
+    // Unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+  }
+
+  showConsole(){
+    this.uiSerivce.toggleItem();
+  }
+
+}
+
+4- app/components/header.component.hrml :
+<div class="title">
+    <h3>{{ title }}</h3>
+</div>
+<div class="btn-right">
+    <app-button 
+        [color]="show ? 'red' : 'black'" 
+        [text]="show ? 'Close' : 'Add'" 
+        (btnClick)="showConsole()"
+    >
+    </app-button>
+</div>
+
+

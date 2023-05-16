@@ -1,0 +1,28 @@
+*ngIf='' => if
+*ngFor='let item of items' => for
+[ngClass]="lossesShow ? 'btn-danger' : 'btn-info'"
+[ngStyle]="{'background': color}"
+
+
+-Router If :
+1- component.ts :
+import { Router } from '@angular/router';
+
+export class ButtonComponent{
+  constructor(private router: Router) {}
+
+  hasRoute(route: string){
+    return this.router.url === route;
+  }
+}
+
+2- component.html :
+*ngIf="hasRoute('/')"
+
+- convert string to number :
+Number(var of the string);
+
+  toggleLosses(): void{
+    this.lossesShow = !this.lossesShow;
+  }
+

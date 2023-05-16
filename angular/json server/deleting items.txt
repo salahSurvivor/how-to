@@ -1,0 +1,53 @@
+1- app/components/item.component.html : first component
+    <div class="items-right" (click)="onDelete(item)">
+        <i class="fa-solid fa-trash"></i>
+    </div>
+
+2- app/components/item.component.ts : second component
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Item } from '../../item'; 
+
+export class ItemComponent {
+  @Input() item: Item;
+  @Output() deleteItem: EventEmitter<Item> = new EventEmitter();
+
+  onDelete(item){
+    this.deleteItem.emit(item);
+  }
+}
+
+3- app/components/items.component.html :
+<app-item 
+    *ngFor="let item of items" 
+    [item]="item"
+    (deleteItem)="onDelete(item)"
+>
+</app-item>
+
+4- app/components/items.component.ts
+import {Item} from '../../item';
+import {ItemService} from '../../services/item.service';
+
+export class ItemsComponent{ 
+  items: Item[] = [];
+
+  constructor(private itemService: ItemService){}
+
+  onDelete(item: Item){
+    this.itemService.deleteItems(item).subscribe(() => this.items = this.items.filter((i) => i.id !== item.id));
+  }
+}
+
+5- 
+import {Item} from '../item';
+import { HttpClient } from '@angular/common/http'
+import {Observable} from 'rxjs';
+
+export class ItemService {
+  constructor(private http: HttpClient) {}
+
+  deleteItems(item: Item): Observable<Item>{
+    const url = `${this.apiUrl}/${item.id}`;
+    return this.http.delete<Item>(url);
+  } 
+}

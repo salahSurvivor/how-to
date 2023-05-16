@@ -1,0 +1,23 @@
+import { HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+
+private readonly apiUrl = 'http://localhost:3000/';
+
+constructor(
+  private readonly http: HttpClient,
+  private readonly jwtHelper: JwtHelperService
+) {}
+
+login(data){
+  return this.http.post<{ token: string }>(this.apiUrl + 'login', data);
+}
+
+logout() {
+  localStorage.removeItem('token');
+}
+
+isAuthenticated(): boolean {
+  const token = localStorage.getItem('token');
+  return !this.jwtHelper.isTokenExpired(token);
+}

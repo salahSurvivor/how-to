@@ -1,0 +1,38 @@
+const nodemailer = require('nodemailer');
+
+app.get('/nodemailer', async(req, res) =>{
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.zoho.in', // thise is zoho host 
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'salaheddinenaji@zohomail.in', //zoho email
+          pass: 'Stfesimaan2609' //zoho password
+        },
+        /**
+         * If you are testing on your local machine, 
+         * your antivirus software may be intercepting 
+         * your attempt to contact the mail server. (this is what's stand for tls)
+        */
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    const message = {
+        from: 'salaheddinenaji@zohomail.in', 
+        to: 'salaheddinenaji2000@gmail.com', 
+        subject: 'Test Email', 
+        text: 'This is a test email sent from Node.js using Nodemailer.',
+    };
+
+    transporter.sendMail(message, (error, info) => {
+        if (error) {
+            res.status(500).json({Error: error.message})
+            console.log('Error occurred: ', error.message);
+            return;
+        }
+        res.status(200).json({emailSent : info.messageId});
+        console.log('Email sent: ', info.messageId);
+    });
+})

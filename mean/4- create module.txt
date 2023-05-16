@@ -1,0 +1,12 @@
+/modules/moduleName :
+const mongoose = require('mongoose');
+
+var Mongoose = mongoose.model('brothers', {
+    name: {type: String, required: [true, "Please enter a product name"]},
+    job: {type: String},
+    age: {type: Number}
+});
+
+module.exports = Mongoose;
+
+

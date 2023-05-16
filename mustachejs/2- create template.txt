@@ -1,0 +1,24 @@
+example :
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generate Page</title>
+  </head>
+  <body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+	//if you have loop you should increment {{#items}} and if you don't hav loop just remove it
+        {{#items}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{price}}</td>
+            <td>{{quantity}}</td>
+        </tr>
+        {{/items}}
+    </table>
+  </body>
+</html>

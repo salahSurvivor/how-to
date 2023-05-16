@@ -1,0 +1,14 @@
+<p class='lead'></p>                                => Tatradelktaba zwina
+<img class='img-responsive' />               => you going to responsive the image
+<img class='center-block' />                   => Center img
+class='text-center'                                    => Cnter Text
+class='mx-auto'						=> center item
+class='rounded-circle'                             => circle img
+class='lead'                                              => tatzawa9 p
+class='form-control-lg'                           => tatkabare linput
+class='list-unstyled'                                => remove the circle on ul
+class='bg-dark'                                       => input dark
+class='text-danger'                                 => change color
+class='float-start'                                 => float left
+class='float-end'                                   => float right
+class='fs-1'                                        => font-size

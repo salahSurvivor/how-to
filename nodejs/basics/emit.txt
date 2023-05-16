@@ -1,0 +1,24 @@
+1- emitter.js (parent file) :
+
+const EventEmitter = require('events');
+//uuid it's generate a random id
+const uuid  = require('uuid');
+
+class emitter extends EventEmitter{
+    log(msg){
+        //call event
+        this.emit('message', {id: uuid.v4(), msg: msg})
+    }
+}
+
+module.exports = emitter;
+
+2- callEmitter.js :
+
+const Emitter = require('./emitter');
+
+const emitter = new Emitter();
+
+emitter.on('message', (data) => console.log('this is my data :', data));
+
+emitter.log('hello aseel');

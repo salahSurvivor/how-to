@@ -1,0 +1,53 @@
+1- index.js :
+
+const http = require('http');
+const fs = require('fs')
+const path = require('path');
+
+const server = http.createServer((req, res) => {
+    if(req.url == '/'){
+        fs.readFile((path.join(__dirname, 'public', 'index.html')), (err, content) => {
+            if(err) throw err;
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(content);
+        })
+    }
+    else if(req.url == '/about'){
+        fs.readFile((path.join('public', 'about.html')), (err, content) =>{
+            if(err) throw err;
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(content);
+        })
+    }
+
+    else if(req.url == '/api/users'){
+        const users = [
+            {
+                name: 'salaheddine',
+                age: 22
+            },
+            {
+                name: 'mohammed',
+                age: 25,
+            }
+        ];
+        res.writeHead(200, { 'Content-Type': 'application/json' })
+        res.end(JSON.stringify(users));
+    } 
+
+});
+
+const port = process.env.port || 5000;
+
+server.listen(port, () => console.log(`Server Runing On ${port}`));
+
+2- package.json :
+
+{
+  ..
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  ..
+}

@@ -1,0 +1,8 @@
+app.moudule.ts :
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+
+  providers: [
+    ....
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],

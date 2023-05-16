@@ -1,0 +1,7 @@
+$(window).scroll(function(){
+    console.log( $(this).scrollTop() );  //tatba3 fl console lvalue li fiha lpage
+
+       if($(this).scrollTop() >= 700) la kant lpage f had l9ima taba9 liya had l code
+        alert('ok');   //your code
+
+});

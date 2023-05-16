@@ -1,0 +1,32 @@
+props :
+
+go to tsconfig.json :
+"compilerOptions": {
+   ...
+   "strict": false,
+}
+
+No provider for HttpClient :
+
+app.module.ts :
+import { HttpClientModule } from '@angular/common/http';
+
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+  ],
+
+[(ngModule)] :
+import { FormsModule } from '@angular/forms';
+
+  imports: [
+    ...
+    FormsModule,
+  ]
+
+
+npm : (run this commandes in terminal)
+    npm i
+    npm audit
+    npm audit fix
+    npm audit

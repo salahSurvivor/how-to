@@ -1,0 +1,89 @@
+1- app/components/add-item.component.html :
+
+<div class="form-control">
+    <form (ngSubmit)="onSubmit()">
+        <label>Name</label>
+        <input type="text" name="name" [(ngModel)]="name" placeholder="Enter Name"  />
+        <label>Job</label>
+        <input type="text" name="job" [(ngModel)]="job" placeholder="Enter Job"  />
+        <label>Age</label>
+        <input type="text" name="age" [(ngModel)]="age" placeholder="Enter Age"  />
+        <div class="form-control form-control-check">
+            <label>Reminder</label>
+            <input type="checkbox" [(ngModel)]="reminder" name="reminder"  />
+        </div>
+        <input class="btn" type="submit" value="Save Item"  />
+    </form>
+</div>
+
+2- app/components/add-item.component.ts :
+import { Component, Output, EventEmitter } from '@angular/core';
+import {Item}  from '../../item';
+
+export class AddItemComponent {
+  @Output() addItem = new EventEmitter();
+
+  name: string;
+  job: string;
+  age: number;
+  reminder: boolean;
+
+  onSubmit(){
+    const data: Item = {
+      name: this.name,
+      job: this.job,
+      age: this.age,
+      reminder: this.reminder,
+    }
+
+    this.addItem.emit(data);
+
+    this.name = '';
+    this.job = '';
+    this.age = null;
+    this.reminder = false;
+  }
+}
+
+3- app/components/add-item.component.html :
+<app-add-item
+    (addItem)="onAdd($event)"
+    *ngIf="show"
+></app-add-item>
+
+4- app/components/add-item.component.ts :
+import {Item} from '../../item';
+import {ItemService} from '../../services/item.service';
+
+export class ItemsComponent{ 
+  items: Item[] = [];
+
+  constructor(private itemService: ItemService){}
+
+  onAdd(item: Item){
+    this.itemService.addItem(item).subscribe((item) => this.items.push(item));
+  }
+  
+}
+
+5- app/services/item.service.ts :
+import {Item} from '../item';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import {Observable} from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
+
+export class ItemService {
+  private apiUrl = 'http://localhost:3000/items/';
+
+  constructor(private http: HttpClient) {}
+
+  addItem(item: Item): Observable<Item>{
+    return this.http.post<Item>(this.apiUrl, item, httpOptions)
+  }
+}
+

@@ -1,0 +1,33 @@
+1-  constructor : tatsta3mlo ghi la bghiti t3araf chi service
+
+  constructor(private itemService: ItemService){}
+
+2- ngOnChanges: tatfa3al mani tatbadal chi haja fl @Input
+
+import { Component, OnChanges, SimpleChanges} from '@angular/core';
+
+export class ButtonComponent implements OnChanges{
+  @Input() text: string;
+
+  ngOnChanges(changes: SimpleChanges){
+    console.log(changes);
+    const changes1 = changes['text'];
+    if(changes1.currentValue == 'Add')  
+      alert('the button is black');
+    else if(changes1.currentValue == 'Close')  
+      alert('the button is red');  
+  }	
+
+}
+
+3- ngOnInit : tatab9 mara 1 when the component Open
+
+  ngOnInit(): void{
+    //code
+  }
+4- ngOnDestroy : tataba9 when the component close
+
+  ngOnDestroy(){
+    // Unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+  }

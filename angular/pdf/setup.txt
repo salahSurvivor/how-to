@@ -1,0 +1,29 @@
+import * as jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
+exportPdf(data2: employees) {
+
+    const doc = new jsPDF();
+    const columns = ['ID', 'Date', 'Gender', 'Job'];
+    const data = [
+      [data2._id, 
+       '22-04-2000',
+       data2.gender,
+       data2.job],
+    ];
+    const img = new Image();
+    img.src = 'assets/uploads/'+ data2.image;
+    doc.setFont("helvetica");
+    doc.setFontType("bold");
+    doc.setFontSize(14);
+    doc.addImage(img, "PNG" ,10, 10, 50, 50);
+    doc.text(data2.name, 10, 70);
+
+    doc.autoTable(columns, data, {
+      margin: { top: 80, right: 10, left: 11 },
+    });
+
+    doc.save('table.pdf');
+  }
+
+}

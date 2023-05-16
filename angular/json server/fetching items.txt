@@ -1,0 +1,36 @@
+1- setup json 
+2- setup services 
+3- app/item.service.ts :
+
+import {Item} from '../item';
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs';
+
+export class ItemService {
+  private apiUrl = 'http://localhost:3000/items';
+
+  constructor(private http: HttpClient) {}
+
+  getItems(): Observable<Item[]>{
+    return this.http.get<Item[]>(this.apiUrl);
+  }
+}
+
+4- app/components/items.component.ts :
+import {Item} from '../../item';
+import {ItemService} from '../../services/item.service';
+
+export class ItemsComponent{ 
+  items: Item[] = [];
+
+  constructor(private itemService: ItemService){}
+
+  ngOnInit(): void{
+    this.itemService.getItems().subscribe((items) => this.items = items);
+  }
+}
+
+5- app/components/items.component.html :
+<p *ngFor='let item of items'>
+  {{ item.colName }}
+</p>

@@ -1,0 +1,4 @@
+background: linear-gradient(0deg, rgba(63, 249, 220, 0.1) 33%, rgba(63, 249, 220, 1) 100%);
+
+0deg : tat3kass awale kolor li radire aykon lta7te tanii raykon lfo9
+33% and 100% : lcolor ch7al ay3amare saf7a

@@ -1,0 +1,23 @@
+const sgMail = require('@sendgrid/mail');
+
+app.get('/sendGrid', async(req, res) => {
+    const API_KEY = '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';
+    sgMail.setApiKey(API_KEY);
+
+    const msg = {
+        to: 'salaheddinenaji2000@gmail.com',
+        from: 'njsalahsn@gmail.com',
+        subject: 'Test Email',
+        text: 'This is a test email sent from Node.js using SendGrid.'
+    };
+
+    sgMail.send(msg)
+    .then(() => {
+        res.status(500).json('Email Sent');
+        console.log('Email sent');
+    })
+    .catch((error) => {
+        res.status(200).json(error);
+        console.error(error);
+    });
+});

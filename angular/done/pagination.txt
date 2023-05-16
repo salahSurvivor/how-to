@@ -1,0 +1,35 @@
+1- npm i ngx-pagination
+2- app.module.ts :
+Importing the pagination module for the application.
+import { NgxPaginationModule } from 'ngx-pagination';
+ 
+// Including the pagination module in the application module.
+  imports: [
+    BrowserModule, NgxPaginationModule
+  ],
+3- app.component.ts :
+export class AppComponent {
+
+  // Pagination parameters.
+  p: number = 1;
+  count: number = 5;
+
+}
+
+4- app.component.html :
+<tr *ngFor="let item of items | paginate: { itemsPerPage: count, currentPage: p }">
+</tr>
+
+<!--Including the pagination control.-->
+<div class="text-center">
+   <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+
+
+
+
+
+
+
+https://www.javacodegeeks.com/2019/04/angular-pagination-example.html

@@ -1,0 +1,44 @@
+1) la bghiti trade page responsive :
+
+<div class='container'>
+      <div class='row'>
+             <div class='col-lg-4 col-md-6 col-xs-12 d-lg-none'>{sghire tayakhde l9ima dyal lkbire}
+             </div>	
+      </div> 
+</div>
+
+
+2) Explain :
+
+/*page responsive*/
+class='container'          => tadire like margin fl page;
+class='container-fuild' => matadirch marjin fjnab dyal page;
+class='row'                   => tat3ni stare;
+class='col'                    => kola paragraph;
+class='lg'                      => l7ala dyal chacha
+- Large Screens                lg
+- Medium Screens           md
+- Small Screen                  sm
+- Extra Small Screen         xs
+class='4'                       => screen khass ykono fiha 12
+/**/
+
+/*div hidden*/
+class='d-none'             => hidden on all
+class='d-lg-none'         => hidden div
+/**/
+
+/*order div*/
+class='order-1'              => tatratab div matalan la bghiti trade akhire div hiya lawla
+
+/*div espace*/
+class='col-lg-4 offset-lg-4'   => tatzide b div b 4 dyal espace 
+
+3) <div class="clearfix"></div> => at7tajha la chi dkhale fchi 
+
+
+@media (max-width: 991px){
+    
+}
+
+

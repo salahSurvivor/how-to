@@ -1,0 +1,13 @@
+order by id : this.items.sort((a, b) => b.id - a.id)
+
+this.mainService.getLosses().subscribe((losses) => {
+   this.losses = losses;
+   this.losses.sort((a, b) => b.id - a.id)
+});
+
+order by date : this.purchases.sort((a, b) => new Date(b.dateP).getTime() - new Date(a.dateP).getTime())
+
+this.mainService.getPurchases().subscribe((purchases) => {
+   this.purchases = purchases;
+   this.purchases.sort((a, b) => new Date(b.dateP).getTime() - new Date(a.dateP).getTime())
+});

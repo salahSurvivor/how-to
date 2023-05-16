@@ -1,0 +1,27 @@
+1) had transition tatkhali div tatkhaze o tatrja3 lblastha
+
+.class{
+       padding-left: 25px; 
+}
+
+.class:hover{
+      -webkit-transition: padding 0.5s ease;
+      -o-transition: padding 0.5s ease;
+      -transition: padding 0.5s ease;
+}
+
+2) transition loading cercle:
+
+.circle-container{
+animation: spin .8s linear 0s infinite;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(359deg);
+    }
+}
+

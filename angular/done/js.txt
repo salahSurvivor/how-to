@@ -1,0 +1,8 @@
+- sum :
+this.mainService.getInfo().subscribe((item) => item.forEach((value) => this.count += Number(value.purchase)));
+
+- includes :    
+    this.mainService.getInfo().subscribe((items) => 
+      this.items = items.filter((i) => i.phone.includes(this.search))
+    )
+

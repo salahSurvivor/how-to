@@ -1,0 +1,13 @@
+First Component Html:
+<app-componentName color="black" text="Add"></app-componentName>
+
+Second Component Ts:
+import { Component, Input } from '@angular/core';
+
+export class ButtonComponent{
+  @Input() text: string;
+  @Input() color: string;
+}
+
+Second Component Html:
+<button [ngStyle]="{'background': color}" class="btn">{{ text }}</button>

@@ -1,0 +1,30 @@
+var loading = setInterval(loading, 50); // loading smiya dyal function // 50 : chhal mn mara at3awad
+clearInterval(loading); // stop interval
+
+exemple loading page : 
+
+function progress(){
+    var progress = document.querySelector('.loading .progress');
+    var text = document.querySelector('.loading-text');
+    var body = document.querySelector('body');
+    var container = document.querySelector('.loading-container');
+    var width = 16;
+    var count = 4;
+    var loading = setInterval(loading, 50);
+
+    function loading(){
+        if(count == 100 && width == 400){
+            clearInterval(loading);
+            body.style.overflow = 'auto';
+            body.classList.add = 'wow flash';
+            container.style.display = 'none';
+        }
+        else{
+            width = width + 4;
+            count  = count + 1;
+            text.innerHTML = count + '%';
+            progress.style.width = width + 'px';
+        }
+    }
+
+}

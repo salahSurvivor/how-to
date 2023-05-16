@@ -1,0 +1,31 @@
+this if you have loop :
+	const fs = require('fs');
+	const mustache = require('mustache');
+
+        //this for setup json file (name the loop by items)
+        const data = { items: product };
+        //this for reading the template (template it is in the main directory)
+        fs.readFile('template.html', (err, template) => {
+            if (err) throw err;
+            //render the data on the template 
+            const output = mustache.render(template.toString(), data);
+            //create file and fill it with output tha have the content 
+            fs.appendFile('./files/mynewfile1.html', output, function (err) {
+                if (err) throw err;
+                console.log('Saved!');
+            });
+        });
+
+this code if you don't have loop :
+	const fs = require('fs');
+	const mustache = require('mustache');
+	
+	fs.readFile('template.html', (err, template) => {
+            if (err) throw err;
+            const output = mustache.render(template.toString(), req.body);
+
+            fs.appendFile('./files/mynewfile1.html', output, function (err) {
+                if (err) throw err;
+                console.log('Saved!');
+            });
+        });  

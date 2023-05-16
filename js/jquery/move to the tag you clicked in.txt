@@ -1,0 +1,9 @@
+var anyName = $(#id);
+
+anyName.click(function(){
+    $('html,body').animate({ scrollTop : 708}, -150);
+});
+
+explain : 
+708 : value when the page scroll in;
+-150 : the scroll vitesse;

@@ -1,0 +1,58 @@
+﻿** create empty repository :
+ 1/git init
+---------------------------------
+** set your name and email :
+git config --global user.name "your name"
+git config --global user.email "email@example.com"
+----------------------------------------------------
+** link your local repo. with github a repository : (only if you have an empty repository on github and you are the first one to add things to it)
+
+4/git remote add origin (link of your repository on github)
+----------------------------------------------------------
+----------------------------------------------------------
+** To confirm Changes :
+- frst adding them to stagging area : 2/git add .
+- then commit with a suitable commit message : 3/git commit -m "your commit message"
+--------
+** to view commits log (history) :
+git log
+---------------------------------
+** to push your commits to the github repository:
+5/git push origin  "branchName"
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+** to download the repository to your pc :
+git clone http............ (link of the repo.)
+
+** ((don't type (git remote) as you have the remote already after cloning !!))
+--------------------------------------------------------------------------------------
+
+** to pull the latest update from github to your computer :
+git pull origin master (or branch name instead of master)
+--------------------------------------------------------------------------------------
+** لو انت كتبت حاجات بالغلط وحبيت تلغيها كلها وترجع لآخر حاجة بعد آخر كومميت
+git reset --hard
+---------------------------------------------------------------------------------
+** Branches **
+** عشان تعرض البرانش الحالي / to view the current branch :
+git branch
+
+** عشان تعمل برانش جديد وتحول ليه / create a new branch and switch to it :
+git checkout -b (branch name)
+
+create branch : 
+git branch "branch name"
+
+switch to another branch :
+git checkout "branchname"
+
+update changes from github :
+1-git fetch origin master
+2-git pull origin master
+
+conflict commades :
+git merge update_script
+
+
+

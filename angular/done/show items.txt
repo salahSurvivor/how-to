@@ -1,0 +1,58 @@
+1-app/items.ts :
+import {Item} from './item';
+
+export const Items : Item[] = [
+    {
+        id: 1,
+        name: 'mohammed',
+        age: 21,
+        job: 'e-commerce'
+    },
+    {
+        id: 2,
+        name: 'salaheddine',
+        age: 21,
+        job: 'Web Developper'
+    },
+    {
+        id: 3,
+        name: 'ayman',
+        age: 17,
+        job: 'student'
+    },
+]
+
+2-app/item.ts :
+export interface Item{
+    id?: number,
+    name: string,
+    age: number,
+    job: string
+}
+
+3-app/components/items/items.component.ts :
+import {Item} from '../../item';
+import {Items} from '../../items';
+
+export class ItemsComponent{ 
+  items: Item[] = Items;
+}
+
+4-app/components/items/items.component.html :
+<app-item *ngFor="let item of items" [item]="item"></app-item>
+
+5-app/components/items/item.component.ts :
+import { Component, Input } from '@angular/core';
+import { Item } from '../../item'; 
+
+export class ItemComponent {
+  @Input() item: Item;
+}
+
+6-app/components/items/item.component.html :
+<div class="items">
+    <h3>{{ item.name }}</h3>
+    <p>{{ item.job }}</p>
+    <p>{{ item.age }}</p>
+    <i class="fa-solid fa-trash"></i>
+</div>

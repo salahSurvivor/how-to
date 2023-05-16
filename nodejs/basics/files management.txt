@@ -1,0 +1,95 @@
+const path = require('path');
+
+//File Name
+console.log(path.basename(__filename));
+
+//Directory Name
+console.log(path.dirname(__filename));
+
+//File Extension
+console.log(path.extname(__filename));
+
+//create path object
+console.log(path.parse(__filename));
+
+
+1- create file :
+
+const fs = require('fs');
+const path = require('path');
+
+fs.mkdir(path.join(__dirname, '/folderName', 'fileName.ext'), {}, err => {
+    if(err) throw err;
+    console.log('File Created...');
+})
+
+2- create folder :
+
+const fs = require('fs');
+const path = require('path');
+
+fs.mkdir(path.join(__dirname, '/folderName'), {}, err => {
+    if(err) throw err;
+    console.log('File Created...');
+})
+
+3- write in file :
+
+const fs = require('fs');
+const path = require('path');
+
+fs.writeFile(
+    path.join(__dirname, '/test', 'FileName.txt'),
+    'Aseel where are you',
+    err => {
+        if(err) throw err;
+        console.log('File Created...');
+    }
+);
+
+4- write line 7da line :
+
+const fs = require('fs');
+const path = require('path');
+
+fs.writeFile(
+    // that's for the first line
+    path.join(__dirname, '/folderName', 'fileName.ext'),
+    'Aseel where are you',
+    err => {
+        if(err) throw err;
+        console.log('File Created...');
+
+        //file append // that's for the second line
+        fs.appendFile(
+            path.join(__dirname, '/folderName', 'fileName.ext'),
+            ' here i am',
+            err => {
+                if(err) throw err;
+                console.log('File Written to...')
+            }
+        )   
+    }
+);
+
+5- read file :
+const fs = require('fs');
+const path = require('path');
+
+fs.readFile((path.join(__dirname, '/test', 'index.txt')), 'utf8', (err,data) => {
+    if (err) throw err;
+    console.log(data)
+});
+
+6- rename file :
+const fs = require('fs');
+const path = require('path');
+
+fs.rename(
+    (path.join(__dirname, '/test', 'index.txt')),
+     path.join(__dirname, '/test', 'reanamed.txt'),
+     err => {
+        if (err) throw err;
+        console.log('file renamed...');
+     }
+);

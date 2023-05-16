@@ -1,0 +1,76 @@
+1- app/components/item.component.html:
+<div [ngClass]="{ reminder: item.reminder }" (click)="onReminder(item)" class="items">
+    <div class="items-left">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.job }}</p>
+        <p>{{ item.age }}</p>
+    </div>
+    <div class="items-right" (click)="onDelete(item)">
+        <i class="fa-solid fa-trash"></i>
+    </div>
+</div>
+
+2- app/components/item.component.ts:
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Item } from '../../item'; 
+
+export class ItemComponent {
+  @Input() item: Item;
+  @Output() deleteItem: EventEmitter<Item> = new EventEmitter();
+  @Output() reminderItem: EventEmitter<Item> = new EventEmitter();
+
+  onDelete(item){
+    this.deleteItem.emit(item);
+  }
+
+  onReminder(item){
+    this.reminderItem.emit(item);
+  }
+}
+
+3- app/components/items.component.html:
+<app-item 
+    *ngFor="let item of items" 
+    [item]="item"
+    (reminderItem)="onReminder(item)"
+>
+</app-item>
+
+4- app/components/items.component.html:
+import {Item} from '../../item';
+import {ItemService} from '../../services/item.service';
+
+export class ItemsComponent{ 
+  items: Item[] = [];
+
+  constructor(private itemService: ItemService){}
+
+  onReminder(item: Item){
+    item.reminder = !item.reminder;
+    this.itemService.updateItems(item).subscribe(() => 
+    	this.ngOnInit();
+    );
+  }
+
+}
+
+5- app/services/item.service :
+import {Item} from '../item';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import {Observable} from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
+
+export class ItemService {
+  private apiUrl = 'http://localhost:3000/items';
+
+  constructor(private http: HttpClient) {}
+
+  updateItems(item: Item): Observable<Item>{
+    return this.http.put<Item>(this.apiUrl+ item.id, item, httpOptions)
+  }
+}

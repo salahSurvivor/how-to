@@ -1,0 +1,52 @@
+- redirect : 
+[routerLink]="['/']"
+
+- redirect with params :
+[routerLink]="['/', item.id]"
+
+- setup router :
+1- import { RouterModule, Routes } from '@angular/router';
+
+2- const appRoutes: Routes = [
+  { 
+    path: '', 
+    component: HomeComponent,
+  },
+];
+
+3- imports: [
+   ...
+   RouterModule.forRoot(appRoutes, { enableTracing: false }),
+ ],
+
+- how to use params : 
+1- principal component.ts : 
+import { ActivatedRoute } from '@angular/router'; 
+
+export class ItemsDetailsComponent {
+  id: string = null;
+  items: Item[] = [];
+
+  constructor(private itemService: ItemService , route: ActivatedRoute){
+    this.id = route.snapshot.paramMap.get('id');  
+  }
+
+  ngOnInit(): void{
+    this.itemService.getItems().subscribe((items) => this.items = items.filter((item) => item.id == Number(this.id)));
+  }
+
+}
+
+2-  principal component.html :
+<div *ngFor="let item of items">
+	{{ item.name }}
+</div>
+
+3- in the router :
+  {
+    path: ':id',
+    component: componentName,
+  }
+
+4- in the second component.html : 
+<a [routerLink]="['/', item.id]"></a>

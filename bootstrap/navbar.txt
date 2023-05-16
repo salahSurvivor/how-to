@@ -1,0 +1,10 @@
+class='navbar navbar-dark bg-dark'                    => navbar Dark
+class='navbar navbar-dark bg-primary'               => navbar blue
+class='navbar navbar-light'                                  => white navbar
+class='sticky-top'                                                 => navbar fixed on top
+class='navbar fixed-top'                                       => navbar fixed on top
+class='ms-auto'                                                    => ul right
+class="d-flex justify-content-end"                       => div right
+class="d-flex justify-content-center"                   => center div
+class="d-flex justify-content-between"               => div between
+ 
