@@ -12,6 +12,10 @@
     path: '', 
     component: HomeComponent,
   },
+  {
+    path: '**',
+    component: Page404Component
+  }
 ];
 
 3- imports: [

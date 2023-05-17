@@ -1,0 +1,8 @@
+import { LoginGuard } from './guards/login.guard';
+import { IsAdminGuard } from './guards/is-admin.guard';
+
+{
+  path: 'users',
+  component: ReadUserComponent,
+  canActivate: [LoginGuard, IsAdminGuard]
+ },

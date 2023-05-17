@@ -1,0 +1,15 @@
+guards/guard.service.ts :
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+constructor(private readonly jwtHelper: JwtHelperService){}
+
+
+isAuthenticated(): boolean {
+  const token = localStorage.getItem('token');
+  return !this.jwtHelper.isTokenExpired(token);
+}
+
+isAdmin(): boolean{
+  const decodeToken = this.jwtHelper.decodeToken(localStorage.getItem('token'));
+  return decodeToken.isAdmin;
+}
