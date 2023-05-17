@@ -1,0 +1,15 @@
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';  
+
+  private apiUrl = 'https://api.ipify.org?format=json';
+  adressIp: any[];
+
+  constructor(private readonly http: HttpClient){}
+
+  getIp(): Observable<any>{
+    return this.http.get<any>(this.apiUrl);
+  }
+
+  getInfoIp(ip): Observable<any>{
+    return this.http.get<any>(`https://ipapi.co/${ip}/json/`);
+  }  
