@@ -1,0 +1,6 @@
+//Delete A Spesefic Row
+
+db.posts.remove({ title: 'Post Four' })
+
+//Delete All Rows
+db.posts.remove({})

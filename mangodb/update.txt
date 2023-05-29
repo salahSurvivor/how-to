@@ -1,0 +1,5 @@
+db.tableName.updateOne(
+    { "Attribute" : "good" }, 
+    { $set: {"Type" : "DVD", "Title" : "Matrix, The", "Released" : 1999, "Genre" : "Action" } },
+    { upsert: true }
+);

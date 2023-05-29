@@ -1,0 +1,5 @@
+// read all rows
+db.posts.find()
+
+// find rows 
+db.posts.find({ category: 'News' })
