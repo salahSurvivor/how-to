@@ -1,0 +1,54 @@
+/////////////////////back-end///////////////////////////
+
+1- run in the terminal :
+npm i multer
+
+2- backend/app/controllers :
+exports.upload = (req, res) => {
+    console.log(req.files); // Access uploaded files here
+    res.status(200).json({ message: 'Files uploaded successfully' });
+};
+
+3- backend/app/routes :
+    const multer = require('multer');
+
+    const storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+        cb(null, '../front-end/src/assets/uploads/'); // Destination folder for uploaded files
+        },
+        filename: function (req, file, cb) {
+        cb(null, file.originalname); // Use original filename
+        }
+    });
+
+    // Create multer middleware
+    const upload = multer({ storage: storage });
+
+   app.post('/upload', upload.array('images'), portfolioController.upload);
+
+
+////////////////////////frontend/////////////////////////
+
+1- service :
+  upload(data): Observable<any>{
+    return this.http.post<any>('http://localhost:3000/upload', data);
+  }	
+
+2- component.ts :
+
+  covers: any[] = [];
+
+  onFileSelected(event: any): void{
+    for(let file of event.files){
+      this.covers.push(file);
+    } 
+  }
+
+  addImage(): void{
+    const formData = new FormData();
+    const formData2 = new FormData();
+
+    this.portfolio.upload(formData).subscribe();
+  }
+
+

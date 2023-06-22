@@ -1,0 +1,111 @@
+ imprimer(data: Mix): void{
+    const doc = new jsPDF();
+    const img = new Image();
+    img.src = 'assets/files/logo-digiparc-color.png';
+    let adress = 'ARIN EXPRESS MOROCCO SARL - Rue Abi Lhassan Achadili - Tanger / Maroc - ICE : 000023696000020';
+    let adressSplit = adress.split('-');
+    doc.addImage(img, 'png', 10, 10, 50, 10);
+    doc.setFont('helvetica');
+    doc.setFontType(200);
+    doc.setTextColor(49, 95, 145);
+    doc.setFontSize(45);
+    doc.lstext('SOGMPS', 80, 25, 1);
+    doc.setFontType(700);
+    doc.setFontSize(10.5);
+    doc.lstext('Transport International de Marchandises Express', 78, 30, 0);
+    doc.setTextColor(50, 50, 51);
+    doc.setFontSize(12);
+    doc.text(adressSplit, 200, 45, 'right');
+    doc.setTextColor(0, 0, 0);
+    doc.setFontType('bold');
+    doc.setFontSize(14);
+    doc.text('FACTURE N°'+ data.numero, 85, 70);
+    doc.setTextColor(50, 50, 51);
+    doc.setFontSize(12);
+    doc.setFontType(200);
+    //First Table
+    doc.rect(10, 80, 190, 28);
+    doc.text('Date', 20, 87);
+    doc.text('Facture', 18, 92);
+    doc.text('01/06/2023', 15, 103.5);
+    doc.rect(40, 80, 0, 28);
+    doc.text('Date', 50, 87);
+    doc.text('Chargement', 45, 92);
+    doc.text(data.dateC, 45, 103.5);
+    doc.rect(70, 80, 0, 28);
+    doc.text('Date', 80, 87);
+    doc.text('Déchargement', 73, 92);
+    doc.text(data.dateD, 75, 103.5);
+    doc.rect(100, 80, 0, 28);
+    doc.text('Type Vehicule', 102.5, 90);
+    doc.text('Parc', 105, 103.5);
+    doc.rect(130, 80, 0, 28);
+    doc.text('Matricule', 137, 90);
+    doc.text(data.reference, 135, 103.5);
+    doc.rect(160, 80, 0, 28);
+    doc.text('CMR', 174, 90);
+    doc.text(data.cmr, 165, 103.5);
+    doc.rect(10, 97, 190, 0)
+    //Second Table
+    doc.rect(10, 118, 190, 80);
+    doc.rect(10, 128, 190, 0);
+    doc.rect(160, 118, 0, 80);
+    doc.text('Libellées', 76, 124);
+    doc.text('Prix Total H.T', 167, 122);
+    doc.text('Mad', 175, 126.5);
+    doc.setFontSize(11);
+    doc.text(`
+    - Type Prestation : Transport International / National
+    - Type Trajet : Export/ ou Import
+    - Point de charge : Usine + Adresse + Pays
+    - Point décharge : usine + Adresse + Pays
+    
+
+    Prix vente initial ....
+    Paralysation (mobilisation) 
+    `, 10.5, 129.5);
+    doc.text('....', 178, 158);
+    doc.text('....', 178, 163);
+    //table 3
+    doc.rect(130, 200, 70, 30);
+    doc.text('TOTAL HT', 135, 206.5);
+    doc.text('....', 178, 206.5);
+    doc.rect(130, 210, 70, 0);
+    doc.rect(160, 200, 0, 30);
+    doc.rect(130, 220, 70, 0);
+    doc.text('T.V.A 14%', 135, 216.5);
+    doc.text('....', 178, 216.5);
+    doc.text('TOTAL TTC', 135, 226.5);
+    doc.text('....', 178, 226.5);
+    doc.text('Arrêté la présente facture à la somme de :', 12, 228);
+    doc.setFontSize(9.5);
+    doc.text('Conditions de Réglement :', 12, 242);
+    //table 4
+    doc.setFontSize(12);
+    doc.rect(10, 243.5, 190, 15);
+    doc.text('Montant TTC', 13, 248.5);
+    doc.rect(10, 251, 190, 0);
+    doc.rect(40, 243.5, 0, 15);
+    doc.text('Mode', 50, 248.5);
+    doc.rect(70, 243.5, 0, 15);
+    doc.text('Echéance', 73.5, 248.5);
+    doc.rect(100, 243.5, 0, 15);
+    doc.text('Coordonnées bancaires', 130, 248.5);
+    doc.setFontSize(10);
+    doc.text(`26, Rue Andaloussi, Building Office Anatolia 4éme Etage N° 14 Tanger (Maroc)
+    contact@sogmps.com - www.transport-sogmps.com
+    Tél/ Fax : 00212 539 374 401 - GSM 24h : 00212 626 666 315
+    Capital Social : 100 000 Mad - Compte Attijari RIB : 007640 001492300000002219
+    Agrément de tranport N° : 4579/T/30`, 200, 275, 'right');
+    doc.text('PATENTE N° : 50473000 - IF N° : 40121960 - RC N° : 43177 - ICE N° : 001565839000088', 203, 90, -90); 
+
+    //If you Want To Move To The Second Page
+    doc.addPage();
+    doc.text('Hello Second Page!!', 10, 10);
+
+    doc.save('save.pdf');
+    //preview pdf
+    /*const pdfDataUri = doc.output('datauristring');
+    const newWindow = window.open();
+    newWindow.document.write('<iframe src="' + pdfDataUri + '" width="100%" height="100%"></iframe>');*/
+  }

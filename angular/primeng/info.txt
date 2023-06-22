@@ -1,0 +1,22 @@
+validator : KeyFilter
+Knob : how much percent
+inputswitch : checkBox
+listbox: sideBAR
+rating: stars rating
+splitbutton: you going to need here in crud
+speeddial: you going to need here in crud
+TreeTable: you going to need here in data complicated
+timeline: for processing the orders
+accordion: filter digiparc
+fieldset: Toggleable like filter digiparc
+confirmpopup: you going to use here on the delete (small)
+confirmdialog: you going to use here on the delete (big)
+dynamicdialog: Modal
+overlaypanel: show image in popup
+sliderBar: sidebar
+tooltip: placeholder popup
+fileupload: input:file
+chart: diagramme
+dragdrop: move input from card to an another card
+inplace: show input and hide them
+skeleton: load data when she don't exist

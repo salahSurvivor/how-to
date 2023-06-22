@@ -68,3 +68,6 @@ router.post('/brother', upload.single('image(<input name='image'>)'), async(req,
     this.date = null;
     this.gender = null;
   }
+
+
+../front-end/src/assets/uploads

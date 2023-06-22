@@ -1,0 +1,13 @@
+convertImage(){
+    const fileUrl = 'assets/files/logo-digiparc-color.png';
+  
+    this.http.get(fileUrl, { responseType: 'blob' }).subscribe((blob: Blob) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        // Use the base64String as needed (e.g., send it to the server, display in an <img> tag, etc.)
+        console.log(base64String);
+      };
+      reader.readAsDataURL(blob);
+    });
+  }

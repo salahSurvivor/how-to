@@ -1,0 +1,4 @@
+  openPdf() {
+    const pdfUrl = 'assets/uploads/naji1750.pdf';
+    window.open(pdfUrl, '_blank');
+  }
