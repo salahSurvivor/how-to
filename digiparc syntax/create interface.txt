@@ -1,0 +1,19 @@
+1- create model (back-end & front-end)
+2- create interface from the dashboard
+3- constants.js && db.keys.ts (add the code entity)
+4- generic.js (here you going to add your crud)
+
+- import model 
+- create, update, delete (it's generated)
+- read (you going to code here on the helper)
+
+for example this functions you going to find here on helper :
+
+- getTtsTarifListWithJoinPerformance (this bring all the list filtred and records)
+- getTtsTarifReferencielData (this bring all the list whithout filred)
+
+5- add routes in the front
+6- create component (components/finance/codeEntity.js)
+7- if you want to add write a text put it in the dictionaire first (add it from the dashboard)
+8- add the routes of the interface that you add on (layouts.component.html)
+9- add the permission on the dashboard .

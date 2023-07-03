@@ -1,0 +1,19 @@
+create interface from the dashboard (remplir the code and solution)
+
+back-end :
+
+1- constants.js (add the code of the interface to it)
+2- create model (Models/modelName.Model.js)
+3- generic.js (create crud)
+
+- import model 
+- create all the crud functions
+
+
+front-end :
+
+1- db.keys.ts (add the code of the interface to it)
+2- referenciel.component.html :
+<div *ngIf='visibilityFinnance'>
+  <li>Add Your routes here</li>
+</div>

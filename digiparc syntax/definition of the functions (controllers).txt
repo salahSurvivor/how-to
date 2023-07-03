@@ -1,0 +1,97 @@
+1) searchCustomersLazy :
+
+- number of the rows
+- page numero
+
+2) getData (data that you want t show)
+
+3) getList :
+
+  - data filtred
+  - record
+  - nom of the client id
+
+4) initTableCols (fill the grid) 
+
+5) refreshFilter (clear the filter)
+
+6) getParams (return the data that you going to need it on the filter)
+
+7) getReferentielData (fill the inputs)
+
+8) calculRecap (set the recap)
+
+9) onAddClick :
+
+  - setMode (switch onAdd or onUpdate or onList)
+  - prepareForm (prepare add form)
+  - resetDropdownlists (clear dropDownList)
+
+10) onCancelClick (cancel and return in the mainPage)
+
+11) initForm (validate data)
+
+12) onUpdateClick(record) : 
+
+- set all the records in the inputs 
+
+13) prepareEntity (get just the id of record for stock it in db)
+
+14) resetDropdownlists (clear dropDownList)
+
+15) isValidForm :
+
+- bach tatclicki 3la ajouter ta desactiva l button o tatekmal request 3ad tatactiva man jedide
+
+16) verifyData (verify all the required field)
+
+17) verifyField (verify if the field is full or not)
+
+18) dateFinSuppDateDebut (check if dateFin superior than dateDebut)
+
+19) onChangeEntreprise (bring the list when you entreprise change)
+
+20) onChangeTrajet (trace the trajet is changed)
+
+21) onBlurPrix :
+
+- if price is empty you going to set price like this 0,00
+- if is not empty the price is convert from this 50 to this 50,00
+- verifyPrixField (if price is null error message show)
+
+22) dateValidation (validate if dateDebut superior than dateFin that on the blur)
+
+23) getTtsTrajetList (get the entreprise trajet)
+
+24) getTtsTrajetListEdit (get the entreprise trajet function 2)
+
+25) onDeleteClick (set the record that you want to delete in to a var)
+
+26) deleteRow (delete row just from the front-end)
+
+27) setDeleteMessage (delete message that show in the pop-up)
+
+28) delete (delete record from the db)
+
+29) getListExport (export exel)
+   
+  - initTableColsRapport (you need here in the exel for remplir the table)
+  - generateExcel ( here when the exel generated)
+  
+30) changeDateFormat (change date format like that 'dd/MM/yyyy')
+
+31) initDateFormat (set dateformat on what date format you set in the settings)
+
+32) ngOnDestroy (destroy subscriptions)
+
+33) trackJournalOperation (history)
+
+34) formatValue (convert number from this 22 to this 22,00)
+
+35) onSubmit (for add anf update function)
+
+36) getPermission (for know the permissions)
+
+37) getDicoValue (for translate word)
+
+
