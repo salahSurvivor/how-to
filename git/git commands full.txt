@@ -54,5 +54,8 @@ update changes from github :
 conflict commades :
 git merge update_script
 
+Cancel commit :
+git reset HEAD~1
+
 
 
